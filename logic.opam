@@ -1,0 +1,21 @@
+opam-version: "2.0"
+synopsis: "Repository of logic definitions"
+description: """
+This package provides various modules (prefixed by Logic)
+for defining logics in Lambdapi:
+- TFF: polymorphic first-order logic
+- U: axioms of the theory U
+- Zenon: logic files used by the automated theorem prover ZenonModulo
+- PTS: Pure Type Systems
+"""
+maintainer: ["frederic.blanqui@inria.fr"]
+authors: ["Frédéric Blanqui"]
+license: "CECILL-2.1"
+homepage: "https://github.com/Deducteam/lambdapi-logics"
+bug-reports: "https://github.com/Deducteam/lambdapi-logics/issues"
+dev-repo: "git+https://github.com/fblanqui/lib.git"
+install: [ make "install" ]
+uninstall: [ make "uninstall" ]
+depends: [
+  "lambdapi" {>= "2.0.0"}
+]
