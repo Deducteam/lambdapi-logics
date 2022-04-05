@@ -3,7 +3,7 @@ SRC = $(wildcard *.lp)
 OBJ = $(SRC:.lp=.lpo)
 .SUFFIXES:
 
-LAMBDAPI = dune exec -- lambdapi
+LAMBDAPI = lambdapi
 
 all:
 	$(LAMBDAPI) check $(SRC)
