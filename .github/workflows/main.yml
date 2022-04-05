@@ -37,7 +37,7 @@ jobs:
       - name: Install lambdapi dependencies
         run: opam install dune bindlib timed sedlex menhir pratter yojson cmdliner why3
       - name: Check out lambdapi
-        run: git clone --depth 1 --branch ${{ matrix.lambdapi-version }} https://github.com/Deducteam/lambdapi.git
+        run: git clone --depth 1 https://github.com/Deducteam/lambdapi.git
       - name: Install lambdapi
         run: |
           eval $(opam env)
