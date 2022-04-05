@@ -4,7 +4,7 @@ on:
   push:
   workflow_dispatch:
 jobs:
-  build:
+  lambdapi:
     strategy:
       fail-fast: false
       matrix:
@@ -23,7 +23,7 @@ jobs:
         run: |
           eval $(opam env)
           make
-  build-master:
+  lambdapi-master:
     strategy:
       fail-fast: false
     runs-on: ubuntu-latest
@@ -34,15 +34,10 @@ jobs:
         uses: ocaml/setup-ocaml@v2
         with:
           ocaml-compiler: 4.13.1
-      - name: Install lambdapi dependencies
-        run: opam install dune bindlib timed sedlex menhir pratter yojson cmdliner why3
-      - name: Check out lambdapi
-        run: git clone --depth 1 https://github.com/Deducteam/lambdapi.git
       - name: Install lambdapi
         run: |
-          eval $(opam env)
-          cd lambdapi
-          make install
+          opam pin add lambdapi https://github.com/Deducteam/lambdapi.git
+          opam install lambdapi
       - name: Check library
         run: |
           eval $(opam env)
