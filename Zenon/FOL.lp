@@ -17,4 +17,4 @@ symbol ¬ p ≔ p ⇒ ⊥; notation ¬ prefix 20;
 symbol ⇔ p q ≔ (p ⇒ q) ∧ (q ⇒ p); notation ⇔ infix left 10;
 symbol ≠ t u ≔ ¬ (t = u); notation ≠ infix 12;
 
-symbol ϵ : Prop → TYPE;
+injective symbol ϵ : Prop → TYPE;
