@@ -8,7 +8,7 @@ for defining logics in Lambdapi:
 - Zenon: logic files used by the automated theorem prover ZenonModulo
 - PTS: Pure Type Systems
 """
-maintainer: ["frederic.blanqui@inria.fr"]
+maintainer: ["frederic.blanqui@inria.fr" "Yacine El Haddad"]
 authors: ["Frédéric Blanqui"]
 license: "CECILL-2.1"
 homepage: "https://github.com/Deducteam/lambdapi-logics"
