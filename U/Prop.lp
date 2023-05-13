@@ -25,3 +25,8 @@ rule Prf ($p ∨ $q) ↪ Π r, (Prf $p → Prf r) → (Prf $q → Prf r) → Prf
 constant symbol ⇒ : Prop → Prop → Prop; notation ⇒ infix right 10;
 
 rule Prf ($x ⇒ $y) ↪ Prf $x → Prf $y;
+
+// some sanity checks
+assert p q  ⊢ ¬ p ∧ q ≡ (¬ p) ∧ q;
+assert p q  ⊢ ¬ p ∨ q ≡ (¬ p) ∨ q;
+assert p q r ⊢ p ∨ q ∧ r ≡ p ∨ (q ∧ r);

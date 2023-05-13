@@ -13,3 +13,7 @@ require open Logic.U.Set Logic.U.Quant;
 symbol ∀ᶜ [a] p ≔ `∀ x : El a, ¬ ¬ (p x); notation ∀ᶜ quantifier;
 
 symbol ∃ᶜ [a] p ≔ `∃ x : El a, ¬ ¬ (p x); notation ∃ᶜ quantifier;
+
+// some sanity checks
+assert p q  ⊢ p ∧ᶜ q ≡ (¬ ¬ p) ∧ (¬ ¬ q);
+assert p q  ⊢ p ∨ᶜ q ≡ (¬ ¬ p) ∨ (¬ ¬ q);
