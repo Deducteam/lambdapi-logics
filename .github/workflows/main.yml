@@ -17,6 +17,8 @@ jobs:
         uses: ocaml/setup-ocaml@v2
         with:
           ocaml-compiler: 4.14.0
+      - name: Install required libraries
+        run: sudo apt-get install -y libev-dev
       - name: Setup opam for testing the development version
         run: opam pin -n --dev-repo lambdapi
         if: matrix.lambdapi-version == 'lambdapi'
