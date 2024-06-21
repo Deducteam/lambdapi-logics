@@ -14,8 +14,8 @@ license: "CECILL-2.1"
 homepage: "https://github.com/Deducteam/lambdapi-logics"
 bug-reports: "https://github.com/Deducteam/lambdapi-logics/issues"
 dev-repo: "git+https://github.com/fblanqui/lib.git"
+build: [ make ]
 install: [ make "install" ]
-uninstall: [ make "uninstall" ]
 depends: [
   "lambdapi" {>= "2.0.0"}
 ]
