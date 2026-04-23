@@ -81,6 +81,6 @@ rule nnpp (_ ⇒ $b) $pr $q ↪
 rule nnpp (∀ $p) $pnnfp $t ↪
   nnpp ($p $t) (λ h1 : ϵ (¬ ($p $t)), $pnnfp
     (λ h2 : ϵ (∀ $p), h1 (h2 $t)));
-rule nnpp $a.[] (λ h1, h1 (nnpp $a.[] (λ h2, $K.[h1,h2]))) ↪
-  nnpp $a.[] (λ h1, $K.[h1,h1]);
+rule nnpp $a.[] (λ h1, h1 (nnpp $a.[] (λ h2, $K.[h1;h2]))) ↪
+  nnpp $a.[] (λ h1, $K.[h1;h1]);
 rule nnpp _ (λ h1, h1 $K.[]) ↪ $K.[];
