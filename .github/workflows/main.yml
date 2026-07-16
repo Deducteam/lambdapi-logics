@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        lambdapi-version: [dev, 3.0.0, 2.6.0, 2.5.1, 2.5.0, 2.4.1, 2.4.0, 2.3.1]
+        lambdapi-version: [dev, 3.0.0, 2.6.0]
 
     runs-on: ubuntu-latest
 
