@@ -1,6 +1,10 @@
 constant symbol Prop : TYPE;
 
+builtin "Prop" ≔ Prop;
+
 symbol Prf : Prop → TYPE;
+
+builtin "Prf" ≔ Prf;
 
 constant symbol ⊤ : Prop;
 
