@@ -9,7 +9,7 @@ for defining logics in Lambdapi:
 - PTS: Pure Type Systems
 """
 maintainer: ["frederic.blanqui@inria.fr"]
-authors: ["Frédéric Blanqui"]
+authors: ["Frédéric Blanqui" "Yacine El Haddad"]
 license: "CECILL-2.1"
 homepage: "https://github.com/Deducteam/lambdapi-logics"
 bug-reports: "https://github.com/Deducteam/lambdapi-logics/issues"
@@ -17,5 +17,5 @@ dev-repo: "git+https://github.com/fblanqui/lib.git"
 build: [ make ]
 install: [ make "install" ]
 depends: [
-  "lambdapi" {>= "2.6.0"}
+  "lambdapi" {> "3.0.0"}
 ]

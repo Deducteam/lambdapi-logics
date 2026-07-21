@@ -8,4 +8,4 @@ builtin "Set" ≔ Set;
 
 injective symbol τ : Set → TYPE;
 
-builtin "T" ≔ τ;
+builtin "El" ≔ τ;
