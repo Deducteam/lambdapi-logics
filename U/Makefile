@@ -1,23 +1,44 @@
-.POSIX:
-SRC = $(wildcard *.lp)
-OBJ = $(SRC:.lp=.lpo)
-.SUFFIXES:
+MAKEFLAGS += -r -k -j$(shell nproc)
 
-LAMBDAPI = lambdapi
+LPO_MK := lpo.mk
 
-all:
-	$(LAMBDAPI) check $(SRC)
+EXCLUDE := _opam
+EXCEPT := $(EXCLUDE:%=! -path './%/*')
 
-install: $(OBJ) lambdapi.pkg
-	$(LAMBDAPI) install lambdapi.pkg $(OBJ) $(SRC)
+LP := $(shell find . $(EXCEPT) -name '*.lp' -print)
+DK := $(shell find . $(EXCEPT) -name '*.dk' -print)
+LPO := $(LP:%.lp=%.lpo) $(DK:%.dk=%.lpo)
 
-uninstall:
-	$(LAMBDAPI) uninstall lambdapi.pkg
+.PHONY: default
+default: $(LPO)
 
+LP_OPTIONS = -c -v 0
+
+%.lpo: %.lp
+	@echo lambdapi check $< ...
+	@lambdapi check $(LP_OPTIONS) $<
+
+%.lpo: %.dk
+	@echo lambdapi check $< ...
+	@lambdapi check $(LP_OPTIONS) $<
+
+include $(LPO_MK)
+
+$(LPO_MK): lambdapi.pkg $(LP)
+	@echo create/update $@ ...
+	@lambdapi depend > $@
+
+.PHONY: clean
 clean:
-	rm -f $(OBJ)
+	-find . $(EXCEPT) -name '*.lpo' -delete
+	-rm $(LPO_MK)
 
-.SUFFIXES: .lp .lpo
+.PHONY: install
+install: lambdapi.pkg $(LP) $(LPO)
+	@echo lambdapi install ...
+	@lambdapi install
 
-.lp.lpo:
-	$(LAMBDAPI) check -v 0 -w -c $<
+.PHONY: uninstall
+uninstall: lambdapi.pkg
+	@echo lambdapi uninstall ...
+	@lambdapi uninstall
